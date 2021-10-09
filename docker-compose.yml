@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  redis-server:
+    image: "redis"
+    volumes:
+      - redis_data:/data
+  node-app:
+    build: .
+    ports:
+      - "8081:8081"
+    image: deadtrace/express-redis-visit-counter
+
+volumes:
+  redis_data:
